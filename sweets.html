@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tokyo Cafe Guide - Pancake & Parfait</title>
+  <style>
+    /* ──────────────────────────────────────────────────
+       1. 全体設定 (指定のカラーパレットを適用)
+    ────────────────────────────────────────────────── */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+      background-color: #F8F4EC; /* 背景色：薄いベージュ */
+      color: #3E2C23;            /* 文字色：ダークブラウン */
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ──────────────────────────────────────────────────
+       2. ヘッダー & ナビゲーション
+    ────────────────────────────────────────────────── */
+    .site-header {
+      background-color: #8B5E3C; /* ヘッダー：ブラウン */
+      color: #FFFFFF;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .site-title {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: 2px;
+    }
+
+    .nav-menu {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 15px 0 0 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      padding-top: 10px;
+    }
+
+    .nav-item {
+      margin: 0 15px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .nav-item a:hover {
+      opacity: 0.8;
+    }
+
+    /* ──────────────────────────────────────────────────
+       3. メインコンテンツ & カードレイアウト
+    ────────────────────────────────────────────────── */
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .page-title {
+      text-align: center;
+      font-size: 20px;
+      margin-bottom: 25px;
+      position: relative;
+    }
+
+    .page-title::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 2px;
+      background-color: #A67C52; /* くすみブラウン */
+      margin: 8px auto 0;
+    }
+
+    /* カード部分 */
+    .cafe-card {
+      background-color: #FFFFFF; /* カード背景：白 */
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    /* 写真のスタイル */
+    .cafe-image-container {
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .cafe-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* 店名とおすすめポイント */
+    .cafe-name {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 0 0 10px 0;
+    }
+
+    .cafe-recommend {
+      font-size: 15px;
+      margin-bottom: 20px;
+      border-left: 3px solid #A67C52; /* くすみブラウンの左線 */
+      padding-left: 10px;
+    }
+
+    /* 営業時間 & アクセス */
+    .cafe-info-list {
+      border-top: 1px dashed #E0D3C1;
+      padding-top: 15px;
+      font-size: 14px;
+    }
+
+    .info-row {
+      display: flex;
+      margin-bottom: 8px;
+    }
+
+    .info-label {
+      width: 80px;
+      font-weight: bold;
+      color: #A67C52; /* くすみブラウン */
+    }
+
+    .info-value {
+      flex: 1;
+    }
+
+    /* ──────────────────────────────────────────────────
+       4. ページネーション (前後ページ移動ボタン)
+    ────────────────────────────────────────────────── */
+    .pagination {
+      display: flex;
+      justify-content: space-between;
+      margin: 40px 0;
+    }
+
+    .btn-page {
+      background-color: #A67C52; /* ボタン：くすみブラウン */
+      color: #FFFFFF;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      transition: background-color 0.3s;
+      display: inline-block;
+    }
+
+    .btn-page:hover {
+      background-color: #8B5E3C; /* ホバーでヘッダーと同色のブラウンに */
+    }
+
+    /* ボタンが無効なときのスタイル */
+    .btn-page.disabled {
+      background-color: #E0D3C1;
+      color: #9C8E7E;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    /* ──────────────────────────────────────────────────
+       5. フッター
+    ────────────────────────────────────────────────── */
+    .site-footer {
+      text-align: center;
+      padding: 30px 10px;
+      border-top: 1px solid #E0D3C1;
+      font-size: 12px;
+      color: #8B5E3C;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <h1 class="site-title">Tokyo Cafe Guide</h1>
+    <nav>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="sweets.html">ホーム</a></li>
+        <li class="nav-item"><a href="#">カフェ</a></li>
+        <li class="nav-item"><a href="#">スイーツ</a></li>
+        <li class="nav-item"><a href="#">エリア</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main class="container">
+
+    <h2 class="page-title">パンケーキ＆パフェ特集</h2>
+
+    <article class="cafe-card">
+      <!-- 写真 -->
+      <div class="cafe-image-container">
+        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?q=80&w=800" alt="パンケーキ" class="cafe-image">
+      </div>
+
+      <!-- 店名 -->
+      <h3 class="cafe-name">カフェ・ハニーメープル</h3>
+
+      <!-- おすすめポイント -->
+      <p class="cafe-recommend">
+        ふわふわの焼き立てパンケーキに、季節のフルーツをたっぷり乗せた贅沢パフェが自慢のお店です。
+      </p>
+
+      <!-- 営業時間・アクセス -->
+      <div class="cafe-info-list">
+        <div class="info-row">
+          <span class="info-label">営業時間</span>
+          <span class="info-value">11:00 〜 18:00</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">アクセス</span>
+          <span class="info-value">渋谷駅 徒歩8分</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- ページネーション -->
+    <div class="pagination">
+      <!-- 1ページ目なので「前へ」は無効化 -->
+      <span class="btn-page disabled">← 前のページ</span>
+      <a href="sweets2.html" class="btn-page">次のページ →</a>
+    </div>
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="site-footer">
+    <p>©2026 Tokyo Cafe Guide</p>
+  </footer>
+
+</body>
+</html>
