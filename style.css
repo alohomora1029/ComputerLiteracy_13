@@ -1,0 +1,149 @@
+/* 全体のリセットと基本フォント設定 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: #faf8f5; /* 柔らかいオフホワイト */
+  color: #4a3c31; /* 優しいダークブラウン */
+}
+
+/* 全体を中央に寄せるコンテナ */
+.cafe-container {
+  max-width: 600px; /* スマートフォン〜タブレットに最適な幅 */
+  margin: 0 auto;
+  padding: 0 15px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ヘッダー */
+.cafe-header {
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: 2px solid #e8e0d5;
+}
+
+.site-title {
+  margin: 0 0 15px 0;
+  font-size: 24px;
+  letter-spacing: 0.1em;
+  color: #8c6239; /* カフェラテ風のブラウン */
+}
+
+/* ナビゲーション */
+.cafe-nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.cafe-nav a {
+  text-decoration: none;
+  color: #6b5341;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.cafe-nav a:hover {
+  color: #8c6239;
+}
+
+/* メインコンテンツ */
+.cafe-content {
+  flex: 1; /* フッターを最下部に固定するため */
+  padding: 30px 10px;
+}
+
+.page-title {
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #5c4a3c;
+}
+
+/* 写真エリア */
+.photo-area {
+  margin-bottom: 25px;
+}
+
+.photo-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* 横長でお洒落に見える比率 */
+  background-color: #f0ebe4;
+  border: 1px solid #dcd3c7;
+  border-radius: 8px; /* 少し角を丸く */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8c8275;
+  font-size: 16px;
+}
+
+/* 店名 */
+.shop-name {
+  font-size: 22px;
+  margin: 0 0 15px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e8e0d5;
+  color: #3d2f24;
+}
+
+/* おすすめ・情報セクション */
+.recommend-section, .info-section {
+  margin-bottom: 25px;
+}
+
+.section-title {
+  font-size: 16px;
+  margin: 0 0 8px 0;
+  color: #8c6239;
+}
+
+.section-text {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.info-section p {
+  font-size: 14px;
+  margin: 6px 0;
+}
+
+/* ページネーション（前へ / 次へ） */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-top: 1px solid #e8e0d5;
+  margin-top: 40px;
+}
+
+.pagination a {
+  text-decoration: none;
+  color: #8c6239;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.pagination a:hover {
+  text-decoration: underline;
+}
+
+/* フッター */
+.cafe-footer {
+  text-align: center;
+  padding: 20px 0;
+  border-top: 2px solid #e8e0d5;
+  font-size: 12px;
+  color: #a39585;
+}
+
+.cafe-footer p {
+  margin: 0;
+}
