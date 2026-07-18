@@ -51,6 +51,12 @@ body {
   color: #8c6239;
 }
 
+.active {
+  color: #8c6239; 
+  border-bottom: 2px solid #e8e0d5; 
+  padding-bottom: 2px;
+}
+
 /* メインコンテンツ */
 .cafe-content {
   flex: 1; /* フッターを最下部に固定するため */
